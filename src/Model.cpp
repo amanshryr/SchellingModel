@@ -94,6 +94,8 @@ void SchellingModel::doPerTick(){
 		printf("Tick: %.1f\tAvg satisfied: %.2f\n", currentTick, avgSatisfied);
 		if (currentTick==1 || currentTick==stopAt) //print at the beginning and the end of the simulation
 			printToScreen();
+		if (avgSatisfied==1)
+			repast::RepastProcess::instance()->getScheduleRunner().stop();
 	}
 
 
